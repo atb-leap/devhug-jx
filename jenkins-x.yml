@@ -11,5 +11,4 @@ pipelineConfig:
             - beta
             - run
             - deploy
-            - $APP_NAME
-            - "--image=$DOCKER_REGISTRY/$(gcloud config get-value project)/$APP_NAME:$PREVIEW_VERSION --platform=managed"
+            - --help
