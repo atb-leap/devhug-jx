@@ -4,6 +4,12 @@ pipelineConfig:
     pullRequest:
       postBuild:
         steps:
+        - name: update-gcloud-components
+          command: gcloud
+          args:
+            - --quiet
+            - components
+            - update
         - name: deploy-to-cloud-run
           command: gcloud
           args:
@@ -13,3 +19,5 @@ pipelineConfig:
             - deploy
             - $APP_NAME
             - --image=$DOCKER_REGISTRY/$(gcloud config get-value project)/$APP_NAME:$PREVIEW_VERSION
+            - --region=us-central1
+            - --platform=managed
