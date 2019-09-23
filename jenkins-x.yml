@@ -12,6 +12,6 @@ pipelineConfig:
             - run
             - deploy
             - $APP_NAME
-            - --image $DOCKER_REGISTRY/$(gcloud config get-value project)/$APP_NAME:$PREVIEW_VERSION
-            - --region us-central1
-            - --platform managed
+            - --image=$DOCKER_REGISTRY/$(gcloud config get-value project)/$APP_NAME:$PREVIEW_VERSION
+            - --region=us-central1
+            - --platform=managed
