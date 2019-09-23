@@ -4,3 +4,4 @@ Create react app typescript boilerplate. Airbnb linting, prettier, and skaffold 
 ## State Management
  This project does not add any state management, as that should be left to the developers on a per project basis.
 
+asd
