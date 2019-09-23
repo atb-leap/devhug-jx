@@ -4,15 +4,14 @@ pipelineConfig:
     pullRequest:
       postBuild:
         steps:
-        - name: update-gcloud-components
+        - name: deploy-to-cloud-run
           command: gcloud
           args:
             - --quiet
             - components
             - update
-        - name: deploy-to-cloud-run
-          command: gcloud
-          args:
+            - " && "
+            - gcloud
             - --quiet
             - beta
             - run
