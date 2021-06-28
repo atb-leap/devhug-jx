@@ -1,1 +1,22 @@
 buildPack: leap-react-ts
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      postBuild:
+        steps:
+        - name: deploy-to-cloud-run
+          command: gcloud
+          args:
+            - --quiet
+            - components
+            - update
+            - " && "
+            - gcloud
+            - --quiet
+            - beta
+            - run
+            - deploy
+            - $APP_NAME
+            - --image=$DOCKER_REGISTRY/$(gcloud config get-value project)/$APP_NAME:$PREVIEW_VERSION
+            - --region=us-central1
+            - --platform=managed
